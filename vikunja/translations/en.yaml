@@ -1,0 +1,7 @@
+configuration:
+  enable_registration:
+    name: Enable registration
+    description: Allow new users to sign up through the web UI. Disable once all accounts are created.
+  timezone:
+    name: Timezone
+    description: Timezone used for due dates and reminders, e.g. Europe/Berlin.

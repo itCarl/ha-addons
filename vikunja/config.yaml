@@ -1,0 +1,21 @@
+name: Vikunja
+version: "2.6.0-3"
+slug: vikunja
+description: Self-hosted to-do & project management (official Vikunja binary wrapped as a local add-on)
+url: https://vikunja.io
+arch:
+  - aarch64
+init: false
+startup: services
+boot: auto
+ports:
+  3456/tcp: 3456
+ports_description:
+  3456/tcp: Vikunja web UI / API
+webui: http://[HOST]:[PORT:3456]
+options:
+  enable_registration: true
+  timezone: Europe/Berlin
+schema:
+  enable_registration: bool
+  timezone: str
