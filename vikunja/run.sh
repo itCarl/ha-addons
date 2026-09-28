@@ -5,6 +5,7 @@ CONFIG=/data/options.json
 REG=$(jq -r '.enable_registration // true' "$CONFIG")
 TZ=$(jq -r '.timezone // "Europe/Berlin"' "$CONFIG")
 PUB=$(jq -r '.public_url // ""' "$CONFIG")
+CORS=$(jq -r '.enable_cors // false' "$CONFIG")
 
 mkdir -p /data/files
 
@@ -20,11 +21,20 @@ export VIKUNJA_SERVICE_INTERFACE=:3456
 export VIKUNJA_SERVICE_JWTSECRET="$(cat /data/jwt-secret)"
 export VIKUNJA_SERVICE_ENABLEREGISTRATION="$REG"
 export VIKUNJA_SERVICE_TIMEZONE="$TZ"
-# CORS off: the frontend talks to /api/v1 on whatever origin served it (direct
-# port or any reverse-proxy domain), so cross-origin requests never happen. With
-# CORS enabled Vikunja refuses to start unless a fixed public URL is set, and a
-# fixed URL breaks all other origins with mixed-content/CORS errors.
-export VIKUNJA_CORS_ENABLE=false
+# CORS off by default: the frontend talks to /api/v1 on whatever origin served
+# it (direct port or any reverse-proxy domain), so cross-origin requests never
+# happen. Vikunja >= 2.6 refuses to start with CORS enabled but no public URL,
+# so enable_cors is only honored when public_url is set — note that a fixed
+# public URL makes the frontend call that URL from every origin, which breaks
+# access through other origins with mixed-content/CORS errors.
+if [ "$CORS" = "true" ] && [ -n "$PUB" ]; then
+  export VIKUNJA_CORS_ENABLE=true
+else
+  if [ "$CORS" = "true" ]; then
+    echo "[WARN] enable_cors requires public_url to be set - starting with CORS disabled."
+  fi
+  export VIKUNJA_CORS_ENABLE=false
+fi
 if [ -n "$PUB" ]; then
   export VIKUNJA_SERVICE_PUBLICURL="$PUB"
 fi

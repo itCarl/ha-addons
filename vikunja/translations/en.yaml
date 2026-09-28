@@ -5,3 +5,9 @@ configuration:
   timezone:
     name: Timezone
     description: Timezone used for due dates and reminders, e.g. Europe/Berlin.
+  enable_cors:
+    name: Enable CORS
+    description: Allow cross-origin API requests. Requires "Public URL" to be set (Vikunja refuses to start otherwise). Leave off when the web UI is only used on the same origin.
+  public_url:
+    name: Public URL
+    description: Canonical public URL of this instance (e.g. behind a reverse proxy). Warning - when set, the web UI calls the API on this fixed URL from every origin; accessing the UI through other hostnames then fails. Leave empty for same-origin operation.
