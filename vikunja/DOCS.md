@@ -7,7 +7,7 @@ Self-hosted to-do lists & project management with the official Vikunja server.
 1. Add the repository to your add-on store (see the repository README).
 2. Install the **Vikunja** add-on.
 3. Start the add-on. The first start builds the image and downloads the official
-   Vikunja v2.7.0 release binary — this can take a few minutes.
+   Vikunja v2.7.0 release binary for your architecture (`aarch64` or `amd64`) — this can take a few minutes.
 4. Open the web UI: `http://<your-ha-host>:3456`.
 5. Register your account. Once all users are created, consider disabling
    `enable_registration` in the add-on configuration.

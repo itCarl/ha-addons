@@ -3,6 +3,7 @@
 [![License][license-shield]](LICENSE)
 ![Maintenance][maintenance-shield]
 ![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
 
 A collection of add-ons for Home Assistant OS — self-hosted apps wrapped to run
 supervised on your Home Assistant box: managed, backed up and updated like any
@@ -19,6 +20,8 @@ from the store.
 ## Add-ons
 
 ### ✅ [Vikunja](vikunja/)
+
+![Vikunja add-on version][vikunja-version-shield]
 
 _Self-hosted to-do lists & project management._
 
@@ -43,3 +46,5 @@ licenses (Vikunja: AGPL-3.0 by the Vikunja authors).
 [license-shield]: https://img.shields.io/github/license/itCarl/ha-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[vikunja-version-shield]: https://img.shields.io/badge/dynamic/yaml?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FitCarl%2Fha-addons%2Fmain%2Fvikunja%2Fconfig.yaml

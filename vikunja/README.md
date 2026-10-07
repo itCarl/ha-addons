@@ -1,6 +1,8 @@
 # Home Assistant Add-on: Vikunja
 
+![Version][version-shield]
 ![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
 
 Self-hosted to-do lists & project management.
 
@@ -17,8 +19,8 @@ frontend in one process) so it runs supervised on Home Assistant OS.
 
 ## Features
 
-- Official Vikunja **v2.7.0** release binary, verified against a pinned SHA256
-  checksum at build time
+- Official Vikunja **v2.7.0** release binary for `aarch64` and `amd64`, verified
+  against a pinned SHA256 checksum at build time
 - Single lightweight container (Alpine base), built locally on your box
 - SQLite storage in the add-on's persistent data volume — included in normal
   Home Assistant backups automatically
@@ -56,9 +58,8 @@ Every option is explained in [DOCS.md](DOCS.md); release notes are in [CHANGELOG
 
 ## Troubleshooting
 
-- **Add-on not visible in the store** — only `aarch64` is supported right now; the
-  store hides it on other architectures. Adding another arch is a two-line change,
-  open an issue.
+- **Add-on not visible in the store** — only `aarch64` and `amd64` are supported; the
+  store hides it on other architectures (e.g. 32-bit ARM). Open an issue if you need one.
 - **Build fails with a checksum error** — the downloaded release did not match the
   pinned SHA256. Retry later; if it persists, treat it as a red flag and open an issue.
 - **No HTTPS** — the add-on serves plain HTTP on the LAN. Put it behind a reverse
@@ -66,4 +67,6 @@ Every option is explained in [DOCS.md](DOCS.md); release notes are in [CHANGELOG
 
 See [DOCS.md](DOCS.md) for full installation, options, maintenance commands, persistence and CalDAV details.
 
+[version-shield]: https://img.shields.io/badge/dynamic/yaml?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FitCarl%2Fha-addons%2Fmain%2Fvikunja%2Fconfig.yaml
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg

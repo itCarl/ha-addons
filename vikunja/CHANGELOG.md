@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.0-2
+
+- New architecture: **amd64** (Intel/AMD machines), next to aarch64. The build picks the
+  matching signed Vikunja release zip and verifies its pinned SHA256.
+- The binary selection now also skips the `.sha256` file shipped inside the release zip.
+
 ## 2.7.0-1
 
 - Update Vikunja to [v2.7.0](https://vikunja.io/changelog/vikunja-2.7.0-was-released/):
