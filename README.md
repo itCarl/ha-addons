@@ -1,9 +1,15 @@
 # itCarl's Home Assistant Add-ons
 
+![Home Assistant add-on][ha-shield]
+![Vikunja add-on version][vikunja-version-shield]
+![Vikunja][vikunja-shield]
 [![License][license-shield]](LICENSE)
 ![Maintenance][maintenance-shield]
+![Last commit][commit-shield]
+[![Issues][issues-shield]](https://github.com/itCarl/ha-addons/issues)
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
+[![Stars][stars-shield]](https://github.com/itCarl/ha-addons/stargazers)
 
 A collection of add-ons for Home Assistant OS — self-hosted apps wrapped to run
 supervised on your Home Assistant box: managed, backed up and updated like any
@@ -48,3 +54,8 @@ licenses (Vikunja: AGPL-3.0 by the Vikunja authors).
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [vikunja-version-shield]: https://img.shields.io/badge/dynamic/yaml?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FitCarl%2Fha-addons%2Fmain%2Fvikunja%2Fconfig.yaml
+[ha-shield]: https://img.shields.io/badge/Home%20Assistant-add--on-41BDF5?logo=homeassistant&logoColor=white
+[vikunja-shield]: https://img.shields.io/badge/Vikunja-v2.7.0-196aff
+[commit-shield]: https://img.shields.io/github/last-commit/itCarl/ha-addons
+[issues-shield]: https://img.shields.io/github/issues/itCarl/ha-addons
+[stars-shield]: https://img.shields.io/github/stars/itCarl/ha-addons?style=social

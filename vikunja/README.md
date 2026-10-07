@@ -1,8 +1,13 @@
 # Home Assistant Add-on: Vikunja
 
+![Home Assistant add-on][ha-shield]
 ![Version][version-shield]
+![Vikunja][vikunja-shield]
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
+[![License][license-shield]](../LICENSE)
+![Upstream license][upstream-license-shield]
+![Last commit][commit-shield]
 
 Self-hosted to-do lists & project management.
 
@@ -70,3 +75,8 @@ See [DOCS.md](DOCS.md) for full installation, options, maintenance commands, per
 [version-shield]: https://img.shields.io/badge/dynamic/yaml?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FitCarl%2Fha-addons%2Fmain%2Fvikunja%2Fconfig.yaml
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[license-shield]: https://img.shields.io/github/license/itCarl/ha-addons.svg
+[upstream-license-shield]: https://img.shields.io/badge/Vikunja%20license-AGPL--3.0-blue
+[ha-shield]: https://img.shields.io/badge/Home%20Assistant-add--on-41BDF5?logo=homeassistant&logoColor=white
+[vikunja-shield]: https://img.shields.io/badge/Vikunja-v2.7.0-196aff
+[commit-shield]: https://img.shields.io/github/last-commit/itCarl/ha-addons
