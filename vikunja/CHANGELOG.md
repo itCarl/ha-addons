@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.7.0-3
+
+- Licensing clarified: new `NOTICE` file - the Vikunja logo used as the add-on icon
+  belongs to the Vikunja authors (AGPL-3.0) and is not covered by this repository's
+  MIT License.
+- Both READMEs now state that this is an unofficial add-on, not affiliated with the
+  Vikunja project.
+- More README badges (Home Assistant add-on, bundled Vikunja version, licenses, activity).
+- No functional changes.
+
 ## 2.7.0-2
 
 - New architecture: **amd64** (Intel/AMD machines), next to aarch64. The build picks the

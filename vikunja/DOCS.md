@@ -134,6 +134,12 @@ consume, turning your Vikunja projects into `todo` entities:
 Note: CalDAV support is marked experimental by the Vikunja project. Basic list
 and check-off operations work; advanced features may not.
 
+## License
+
+The add-on files are MIT-licensed; Vikunja itself (downloaded at build time) is
+AGPL-3.0, and the Vikunja logo used as the icon belongs to the Vikunja authors -
+see `NOTICE` in the repository root. This is an unofficial add-on.
+
 ## Support
 
 - Vikunja documentation: https://vikunja.io/docs/
