@@ -22,21 +22,37 @@ frontend in one process) so it runs supervised on Home Assistant OS.
 - Single lightweight container (Alpine base), built locally on your box
 - SQLite storage in the add-on's persistent data volume — included in normal
   Home Assistant backups automatically
-- Persistent JWT signing secret: logins survive add-on restarts and updates
+- Persistent signing secret: logins survive add-on restarts and updates
 - Web UI and REST API on port `3456`
 - CalDAV endpoint for `todo` entities in Home Assistant
+- Vikunja's configuration as add-on options in the Home Assistant UI: mailer (SMTP),
+  defaults for new users, feature switches, reverse proxy, rate limit, Prometheus metrics
+- User management without a shell: `vikunja user ...` commands via the
+  `hassio.addon_stdin` service (list, delete, enable/disable, password reset, admin flag)
 
 ## Configuration
 
 ```yaml
-enable_registration: true   # allow sign-ups via the web UI; disable after setup
+enable_registration: false  # allow sign-ups via the web UI; disable after setup
 timezone: Europe/Berlin     # timezone for due dates and reminders
+mailer:
+  enabled: true             # SMTP for reminders, password reset, deletion mails
+  host: smtp.example.com
 ```
 
 | Option | Default | Description |
 | --- | --- | --- |
 | `enable_registration` | `true` | Allow new users to register through the web UI. Anyone who can reach port 3456 can sign up while this is on — meant for initial setup on a trusted network. |
-| `timezone` | `Europe/Berlin` | Timezone Vikunja uses for due dates, reminders and recurring tasks. |
+| `timezone` | `Europe/Berlin` | Timezone for due dates, reminders and recurring tasks; also the default for new users. |
+| `enable_cors` / `public_url` | `false` / empty | CORS (only together with a public URL) and the URL used in e-mail links. |
+| `log_level` / `files_max_size` | `info` / `20MB` | Log verbosity and maximum upload size. |
+| `mailer` | disabled | SMTP server; without it Vikunja sends no mails at all. |
+| `user_defaults` | `de-DE`, Monday | Language, week start, reminders and overdue digest for new users. |
+| `features` | all on | CalDAV, link sharing, attachments, comments, account deletion, TOTP, webhooks, LAN requests for webhooks. |
+| `reverse_proxy` | `direct` | Client IP detection behind a proxy. |
+| `ratelimit` / `metrics` | off | API rate limit and Prometheus endpoint. |
+
+Every option is explained in [DOCS.md](DOCS.md); release notes are in [CHANGELOG.md](CHANGELOG.md).
 
 ## Troubleshooting
 
@@ -48,6 +64,6 @@ timezone: Europe/Berlin     # timezone for due dates and reminders
 - **No HTTPS** — the add-on serves plain HTTP on the LAN. Put it behind a reverse
   proxy (e.g. the Nginx Proxy Manager add-on) for TLS or external access.
 
-See [DOCS.md](DOCS.md) for full installation, persistence and CalDAV details.
+See [DOCS.md](DOCS.md) for full installation, options, maintenance commands, persistence and CalDAV details.
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg

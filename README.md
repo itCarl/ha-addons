@@ -25,7 +25,8 @@ _Self-hosted to-do lists & project management._
 The open-source alternative to Todoist/Trello: projects, labels, due dates with
 reminders, Kanban/Gantt/table views, shared lists, mobile apps and a REST API.
 Runs the official Vikunja server binary (SHA256-pinned) with persistent SQLite
-storage; connects to Home Assistant `todo` entities via CalDAV.
+storage; connects to Home Assistant `todo` entities via CalDAV. Mailer, user defaults,
+feature switches, proxy, rate limit and metrics are add-on options in the HA UI.
 
 [Documentation](vikunja/DOCS.md)
 
