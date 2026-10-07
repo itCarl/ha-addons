@@ -1,0 +1,13 @@
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local build / test leftovers
+*.log
+*.bak
+*.orig
+*.zip
+tmp/
