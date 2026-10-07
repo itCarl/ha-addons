@@ -17,7 +17,7 @@ frontend in one process) so it runs supervised on Home Assistant OS.
 
 ## Features
 
-- Official Vikunja **v2.6.0** release binary, verified against a pinned SHA256
+- Official Vikunja **v2.7.0** release binary, verified against a pinned SHA256
   checksum at build time
 - Single lightweight container (Alpine base), built locally on your box
 - SQLite storage in the add-on's persistent data volume — included in normal

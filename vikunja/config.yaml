@@ -1,5 +1,5 @@
 name: Vikunja
-version: "2.6.0-6"
+version: "2.7.0-1"
 slug: vikunja
 description: Self-hosted to-do & project management (official Vikunja binary wrapped as a local add-on)
 url: https://vikunja.io
