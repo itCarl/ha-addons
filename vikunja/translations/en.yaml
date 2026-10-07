@@ -4,10 +4,139 @@ configuration:
     description: Allow new users to sign up through the web UI. Disable once all accounts are created.
   timezone:
     name: Timezone
-    description: Timezone used for due dates and reminders, e.g. Europe/Berlin.
+    description: Timezone used for due dates and reminders, e.g. Europe/Berlin. Also the default timezone of new users.
   enable_cors:
     name: Enable CORS
     description: Allow cross-origin API requests. Requires "Public URL" to be set (Vikunja refuses to start otherwise). Leave off when the web UI is only used on the same origin.
   public_url:
     name: Public URL
-    description: Canonical public URL of this instance (e.g. behind a reverse proxy). Warning - when set, the web UI calls the API on this fixed URL from every origin; accessing the UI through other hostnames then fails. Leave empty for same-origin operation.
+    description: Canonical public URL of this instance (e.g. behind a reverse proxy). Used in e-mail links. Warning - when set, the web UI calls the API on this fixed URL from every origin; accessing the UI through other hostnames then fails. Leave empty for same-origin operation.
+  log_level:
+    name: Log level
+    description: Verbosity of the Vikunja log.
+  files_max_size:
+    name: Max upload size
+    description: Maximum size of an attachment or background upload, e.g. 20MB.
+  mailer:
+    name: Mailer (SMTP)
+    description: Needed for reminder e-mails, password reset and account deletion confirmation.
+    fields:
+      enabled:
+        name: Enable mailer
+        description: Send e-mails through the SMTP server below.
+      host:
+        name: SMTP host
+        description: Hostname of the SMTP server.
+      port:
+        name: SMTP port
+        description: Usually 587 (STARTTLS) or 465 (SSL, enable "Force SSL").
+      username:
+        name: Username
+        description: SMTP login.
+      password:
+        name: Password
+        description: SMTP password.
+      from_email:
+        name: Sender address
+        description: From address of all mails, e.g. Vikunja <todo@example.com>.
+      auth_type:
+        name: Auth type
+        description: SMTP authentication mechanism.
+      force_ssl:
+        name: Force SSL
+        description: Connect with implicit TLS (port 465) instead of STARTTLS.
+      skip_tls_verify:
+        name: Skip TLS verification
+        description: Accept invalid certificates. Only for testing.
+  user_defaults:
+    name: Defaults for new users
+    description: Settings applied to accounts created after this change. Existing users keep their own settings.
+    fields:
+      language:
+        name: Language
+        description: UI language code, e.g. de-DE or en. Empty = browser language.
+      week_start:
+        name: Week start
+        description: 0 = Sunday, 1 = Monday, ...
+      email_reminders:
+        name: E-mail reminders
+        description: Send task reminders by e-mail (needs the mailer).
+      overdue_reminders:
+        name: Overdue digest
+        description: Send a daily e-mail with all overdue tasks (needs the mailer).
+      overdue_reminders_time:
+        name: Overdue digest time
+        description: Time of the daily overdue digest, e.g. 9:00.
+      discoverable_by_name:
+        name: Findable by name
+        description: Other users can find this user by name when sharing.
+      discoverable_by_email:
+        name: Findable by e-mail
+        description: Other users can find this user by e-mail address when sharing.
+  features:
+    name: Features
+    description: Switch individual Vikunja features on or off.
+    fields:
+      caldav:
+        name: CalDAV
+        description: Enable the /dav/ endpoint (used by the Home Assistant CalDAV integration).
+      link_sharing:
+        name: Link sharing
+        description: Allow sharing projects via public links.
+      task_attachments:
+        name: Task attachments
+        description: Allow file attachments on tasks.
+      task_comments:
+        name: Task comments
+        description: Allow comments on tasks.
+      user_deletion:
+        name: Account deletion
+        description: Allow users to request deletion of their own account (confirmed by e-mail).
+      totp:
+        name: Two-factor auth (TOTP)
+        description: Allow users to enable TOTP two-factor authentication.
+      webhooks:
+        name: Webhooks
+        description: Allow project webhooks.
+      allow_lan_requests:
+        name: Allow requests to LAN addresses
+        description: Let webhooks and other outgoing requests reach private IPs such as Home Assistant itself. Vikunja blocks them otherwise.
+  reverse_proxy:
+    name: Reverse proxy
+    description: How Vikunja finds the real client IP when it sits behind a proxy (e.g. Nginx Proxy Manager).
+    fields:
+      ip_extraction:
+        name: IP extraction
+        description: direct = connection address, xff = X-Forwarded-For header, realip = X-Real-IP header.
+      trusted_proxies:
+        name: Trusted proxies
+        description: Comma-separated CIDR ranges of proxies allowed to set the header, e.g. 172.30.32.0/23.
+  ratelimit:
+    name: Rate limit
+    description: Limit API requests per user or IP.
+    fields:
+      enabled:
+        name: Enable rate limit
+        description: Turn the API rate limit on.
+      kind:
+        name: Limit by
+        description: Count requests per user or per IP address.
+      period:
+        name: Period (seconds)
+        description: Length of the counting window.
+      limit:
+        name: Max requests
+        description: Requests allowed per period.
+  metrics:
+    name: Prometheus metrics
+    description: Expose /api/v1/metrics for Prometheus/Grafana.
+    fields:
+      enabled:
+        name: Enable metrics
+        description: Turn the metrics endpoint on.
+      username:
+        name: Username
+        description: Basic-auth user for the metrics endpoint.
+      password:
+        name: Password
+        description: Basic-auth password for the metrics endpoint.

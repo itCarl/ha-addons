@@ -1,5 +1,5 @@
 name: Vikunja
-version: "2.6.0-5"
+version: "2.6.0-6"
 slug: vikunja
 description: Self-hosted to-do & project management (official Vikunja binary wrapped as a local add-on)
 url: https://vikunja.io
@@ -8,6 +8,7 @@ arch:
 init: false
 startup: services
 boot: auto
+stdin: true
 ports:
   3456/tcp: 3456
 ports_description:
@@ -18,8 +19,90 @@ options:
   timezone: Europe/Berlin
   enable_cors: false
   public_url: ""
+  log_level: info
+  files_max_size: 20MB
+  mailer:
+    enabled: false
+    host: ""
+    port: 587
+    username: ""
+    password: ""
+    from_email: ""
+    auth_type: plain
+    force_ssl: false
+    skip_tls_verify: false
+  user_defaults:
+    language: de-DE
+    week_start: 1
+    email_reminders: true
+    overdue_reminders: true
+    overdue_reminders_time: "9:00"
+    discoverable_by_name: false
+    discoverable_by_email: false
+  features:
+    caldav: true
+    link_sharing: true
+    task_attachments: true
+    task_comments: true
+    user_deletion: true
+    totp: true
+    webhooks: true
+    allow_lan_requests: true
+  reverse_proxy:
+    ip_extraction: direct
+    trusted_proxies: ""
+  ratelimit:
+    enabled: false
+    kind: user
+    period: 60
+    limit: 100
+  metrics:
+    enabled: false
+    username: ""
+    password: ""
 schema:
   enable_registration: bool
   timezone: str
   enable_cors: bool
   public_url: str?
+  log_level: list(debug|info|notice|warning|error|critical)
+  files_max_size: match(^[0-9]+(KB|MB|GB)$)
+  mailer:
+    enabled: bool
+    host: str?
+    port: port
+    username: str?
+    password: password?
+    from_email: str?
+    auth_type: list(plain|login|cram-md5)
+    force_ssl: bool
+    skip_tls_verify: bool
+  user_defaults:
+    language: str?
+    week_start: int(0,6)
+    email_reminders: bool
+    overdue_reminders: bool
+    overdue_reminders_time: match(^([01]?[0-9]|2[0-3]):[0-5][0-9]$)
+    discoverable_by_name: bool
+    discoverable_by_email: bool
+  features:
+    caldav: bool
+    link_sharing: bool
+    task_attachments: bool
+    task_comments: bool
+    user_deletion: bool
+    totp: bool
+    webhooks: bool
+    allow_lan_requests: bool
+  reverse_proxy:
+    ip_extraction: list(direct|xff|realip)
+    trusted_proxies: str?
+  ratelimit:
+    enabled: bool
+    kind: list(user|ip)
+    period: int(1,)
+    limit: int(1,)
+  metrics:
+    enabled: bool
+    username: str?
+    password: password?
