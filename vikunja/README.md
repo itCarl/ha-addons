@@ -11,6 +11,9 @@
 
 Self-hosted to-do lists & project management.
 
+> Unofficial add-on, not affiliated with or endorsed by the Vikunja project.
+> The Vikunja name and logo belong to their owners — see [NOTICE](../NOTICE).
+
 ## About
 
 [Vikunja](https://vikunja.io) is an open-source, self-hosted to-do and project

@@ -47,7 +47,10 @@ new add-on wrappers.
 ## License
 
 MIT License — see [LICENSE](LICENSE). The wrapped applications keep their own
-licenses (Vikunja: AGPL-3.0 by the Vikunja authors).
+licenses (Vikunja: AGPL-3.0 by the Vikunja authors). The Vikunja logo used as the
+add-on icon is not covered by the MIT License — see [NOTICE](NOTICE).
+
+These are unofficial add-ons, not affiliated with or endorsed by the projects they wrap.
 
 [license-shield]: https://img.shields.io/github/license/itCarl/ha-addons.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg

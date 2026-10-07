@@ -1,0 +1,18 @@
+NOTICE
+
+This repository is licensed under the MIT License (see LICENSE), with the
+following exceptions:
+
+- vikunja/icon.png and vikunja/logo.png show the Vikunja logo. The logo is
+  copyright (c) the Vikunja authors and is distributed by the Vikunja project
+  under the GNU Affero General Public License v3.0
+  (https://github.com/go-vikunja/vikunja/blob/main/LICENSE). It is not covered
+  by the MIT License of this repository.
+
+- "Vikunja" and the Vikunja logo are trademarks of their respective owners.
+  This is an unofficial add-on; it is not affiliated with or endorsed by the
+  Vikunja project.
+
+The add-on does not include Vikunja itself. The official Vikunja release
+binary (AGPL-3.0) is downloaded from https://dl.vikunja.io at build time on
+the user's machine.
